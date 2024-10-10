@@ -9,13 +9,10 @@ const  ToDoApp = () =>{
             setNewToDo("");
         }
     }
-    // const handleToDo = () =>{
-    //     console.log("Function Called Successfully");
-    //     if (newToDo.trim() != ""){
-    //         setToDos([...toDos,newToDo]);
-    //         setNewToDo("");
-    //     }
-    // }
+    const deleteTodo = (index) => {
+        setToDos(toDos.filter((_, i) => i !== index));
+      };
+      
 
     return(
         <>
@@ -28,6 +25,7 @@ const  ToDoApp = () =>{
             toDos.map((todo,index)=>(
                 <li key={index}>
                     {todo}
+                    <button onClick={() => deleteTodo(index)} >Delete</button>
                 </li>
             ))
             }</ul>
